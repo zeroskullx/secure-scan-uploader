@@ -1,10 +1,10 @@
-import {FastifyInstance} from "fastify";
+import { FastifyInstance } from "fastify";
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
-import {avast} from "#/vendor/avast";
-import {insertFileRecord, searchFileHash} from "./controller/file";
+import { avast } from "#/vendor/avast";
+import { insertFileRecord, searchFileHash } from "./controller/file";
 
 const MAX_FILE_SIZE = 1 * 1024 * 1024; // 1 MB
 
@@ -24,25 +24,29 @@ export async function appRoutes(app: FastifyInstance): Promise<void> {
     // Verifica o tamanho do arquivo
     const contentLength = req.headers["content-length"];
     if (contentLength && parseInt(contentLength) > MAX_FILE_SIZE) {
-      return res.status(400).send({error: "File size exceeds the 1MB limit."});
+      return res
+        .status(400)
+        .send({ error: "File size exceeds the 1MB limit." });
     }
 
     try {
       const data = await req.file();
 
       if (!data) {
-        return res.status(400).send({error: "No file uploaded."});
+        return res.status(400).send({ error: "No file uploaded." });
       }
 
       const uploadDir = path.join(__dirname, process.env.FILE_UPLOAD_DIR!);
 
       if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, {recursive: true});
+        fs.mkdirSync(uploadDir, { recursive: true });
       }
 
       // Create a temporary file to calculate the hash
       const tempFilePath = path.join(uploadDir, `temp_${data.filename}`);
-      const tempFileStream = fs.createWriteStream(tempFilePath, {mode: 0o600});
+      const tempFileStream = fs.createWriteStream(tempFilePath, {
+        mode: 0o600,
+      });
 
       await new Promise<void>((resolve, reject) => {
         data.file.pipe(tempFileStream);
@@ -76,7 +80,7 @@ export async function appRoutes(app: FastifyInstance): Promise<void> {
       const avastResult = await avast.scanFile(newFilePath, fileHash);
 
       if (typeof avastResult === "string") {
-        return res.status(500).send({error: "Error scanning file."});
+        return res.status(500).send({ error: "Error scanning file." });
       }
 
       // Save the file record in the database
@@ -94,7 +98,7 @@ export async function appRoutes(app: FastifyInstance): Promise<void> {
       });
     } catch (error) {
       console.error(error);
-      return res.status(500).send({error: "Internal server error..."});
+      return res.status(500).send({ error: "Internal server error..." });
     }
   });
 }

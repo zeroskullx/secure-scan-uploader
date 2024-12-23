@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2020", // Alvo da compilação (pode ser ES6 ou superior)
+    "target": "ES2022", // Alvo da compilação (pode ser ES6 ou superior)
     "module": "ESNext", // Usa módulos ES (ECMAScript)
     "moduleResolution": "node", // Resolve módulos no estilo Node.js
     "strict": true, // Ativa verificações estritas

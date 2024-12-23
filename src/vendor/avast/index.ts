@@ -1,9 +1,9 @@
-import {exec} from "child_process";
+import { exec } from "child_process";
 import path from "path";
 import fs from "fs";
 
-import {resolveResult} from "./resolve-result";
-import {AvastScanResult} from "./types";
+import { resolveResult } from "./resolve-result";
+import { AvastScanResult } from "./types";
 
 function findWindowsAvastPath() {
   const possiblePaths = [
