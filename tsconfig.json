@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Alvo da compilação (pode ser ES6 ou superior)
+    "module": "ESNext", // Usa módulos ES (ECMAScript)
+    "moduleResolution": "node", // Resolve módulos no estilo Node.js
+    "strict": true, // Ativa verificações estritas
+    "esModuleInterop": true, // Permite interoperabilidade com CommonJS
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "outDir": "./dist", // Pasta de saída
+    "rootDir": "./src", // Pasta raiz do código
+    "baseUrl": "./",
+    "paths": {
+      "#/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
