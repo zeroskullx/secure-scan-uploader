@@ -1,4 +1,4 @@
-import {app} from "#/app";
+import { app } from "#/app"
 
 // What I will use in this project are the most common ones like GET, POST, PATCH, PUT, DELETE
 // Explaining a bit about HTTP methods:
@@ -18,12 +18,12 @@ import {app} from "#/app";
 // });
 
 app.listen(
-  {port: Number(process.env.PORT!), host: "0.0.0.0"},
+  { port: Number(process.env.PORT!), host: "0.0.0.0" },
   (err, address) => {
     if (err !== null) {
-      console.error(err);
-      process.exit(1);
+      console.error(err)
+      process.exit(1)
     }
-    console.log(`🚀 Server listening at ${address}`);
-  }
-);
+    console.log(`🚀 Server listening at ${address}`)
+  },
+)
