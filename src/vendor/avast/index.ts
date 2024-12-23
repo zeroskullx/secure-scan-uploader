@@ -51,7 +51,7 @@ export const avast = {
 
     try {
       const scanResult = await resolveScan(filePath)
-      console.log("Log:", scanResult)
+      //console.log("Log:", scanResult)
 
       return resolveResult(scanResult, hash)
     } catch (error) {

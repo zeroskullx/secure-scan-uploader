@@ -49,7 +49,7 @@ export const resolveResult = async (text: string, fileHash: string) => {
     result.scanTime = values[5]
   }
 
-  console.log("Result:", { lines, values, result })
+  //console.log("Result:", { lines, values, result })
 
   return result
 }
