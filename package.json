@@ -1,5 +1,5 @@
 {
-  "name": "securescan-uploader",
+  "name": "secure-scan-uploader",
   "version": "1.0.0",
   "description": "",
   "main": "server.ts",

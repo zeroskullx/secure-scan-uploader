@@ -87,7 +87,7 @@ The solution involves:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/zeroskullx/securescan-uploader.git
+   git clone https://github.com/zeroskullx/secure-scan-uploader.git
    cd securescan-uploader
    ```
 
