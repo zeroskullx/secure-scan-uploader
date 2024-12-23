@@ -87,7 +87,7 @@ export async function appRoutes(app: FastifyInstance): Promise<void> {
         ownerIp: req?.ip || "unknown",
       });
 
-      return res.status(200).send({
+      return res.status(201).send({
         message: "File scanned successfully.",
         //data: fileRecord,
         scanResult: fileRecord.status,

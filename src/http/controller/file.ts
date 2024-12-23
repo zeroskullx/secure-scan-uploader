@@ -1,6 +1,10 @@
 import {prisma} from "#/lib/prisma";
+import {File} from "@prisma/client";
 
-export async function searchFileHash(hash: string, currentFileName: string) {
+export async function searchFileHash(
+  hash: string,
+  currentFileName: string
+): Promise<File | null> {
   const fileRecord = await prisma.file.findUnique({
     where: {hash},
   });
@@ -11,7 +15,7 @@ export async function searchFileHash(hash: string, currentFileName: string) {
 
   return {
     id: fileRecord?.id,
-    fileName: currentFileName,
+    originalFileName: currentFileName,
     status: fileRecord?.status,
     hash: fileRecord?.hash,
     ownerIp: fileRecord?.ownerIp,
@@ -24,7 +28,7 @@ export async function insertFileRecord(props: {
   hash: string;
   status: string;
   ownerIp: string;
-}) {
+}): Promise<File> {
   const {hash, status, currentFileName, ownerIp} = props;
 
   const fileRecord = await prisma.file.create({
@@ -38,7 +42,7 @@ export async function insertFileRecord(props: {
 
   return {
     id: fileRecord.id,
-    fileName: fileRecord.originalFileName,
+    originalFileName: fileRecord.originalFileName,
     status: fileRecord.status,
     hash: fileRecord.hash,
     ownerIp: fileRecord.ownerIp,
