@@ -2,7 +2,7 @@
 
 This project implements a file upload service with built-in virus scanning using the Avast antivirus CLI. The solution addresses the challenge of securely handling file uploads while minimizing the risk of virus propagation. Uploaded files are scanned for viruses, with logs of the scan results stored in a MySQL database. Files are accepted via an API endpoint, and strict file size limits are enforced to ensure efficient processing.
 
----
+![Design Systems Checklist V.3](/public/image/banner-en.jpg)
 
 ## Challenge
 
@@ -88,7 +88,7 @@ The solution involves:
 
    ```bash
    git clone https://github.com/zeroskullx/secure-scan-uploader.git
-   cd securescan-uploader
+   cd secure-scan-uploader
    ```
 
 2. **Install dependencies:**
@@ -148,7 +148,7 @@ curl -X POST -F "file=@example.txt" http://example.com/upload
 
 ---
 
-## Future Improvements
+## Future: It can scale :)
 
 1. **Support for Cloud Storage:** Integrate with S3 or Azure Blob Storage for file storage.
 2. **Distributed Scanning:** Leverage cloud-based antivirus APIs for scalability.
@@ -166,3 +166,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## Contributions
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+[![Português](https://img.shields.io/badge/lang-Portuguese-green.svg)](README.pt.md)
