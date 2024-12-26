@@ -24,7 +24,17 @@ app.register(fastifyCors, {
   methods: ["GET", "POST", "PUT", "DELETE"],
 })
 
+// Routes
 app.register(appRoutes)
+
+// Handler to 404
+app.setNotFoundHandler((request, reply) => {
+  reply.status(404).send({
+    error: "Not Found",
+    message: `Route ${request.method} ${request.url} not found`,
+    statusCode: 404,
+  })
+})
 
 app.setErrorHandler((error, _req, res) => {
   if (error instanceof ZodError) {

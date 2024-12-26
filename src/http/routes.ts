@@ -21,7 +21,7 @@ const calculateHash = async (filePath: string): Promise<string> => {
 
 export async function appRoutes(app: FastifyInstance): Promise<void> {
   app.post("/upload", async (req, res) => {
-    // Verifica o tamanho do arquivo
+    // Check the file size
     const contentLength = req.headers["content-length"]
     if (contentLength && parseInt(contentLength) > MAX_FILE_SIZE) {
       return res.status(400).send({ error: "File size exceeds the 1MB limit." })
