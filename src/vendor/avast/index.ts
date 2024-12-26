@@ -5,7 +5,7 @@ import fs from "fs"
 import { resolveResult } from "./resolve-result"
 import { AvastScanResult } from "./types"
 
-function findWindowsAvastPath() {
+export function findWindowsAvastPath() {
   const possiblePaths = [
     process.env.AVAST_CLI_PATH!,
     "C:\\Program Files (x86)\\Avast Software\\Avast",

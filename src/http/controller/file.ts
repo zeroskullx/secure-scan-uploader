@@ -1,5 +1,5 @@
-import { prisma } from "#/lib/prisma"
 import { File } from "@prisma/client"
+import { prisma } from "#/lib/prisma"
 
 export async function searchFileHash(
   hash: string,

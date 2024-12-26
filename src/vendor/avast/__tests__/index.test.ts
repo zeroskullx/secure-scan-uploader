@@ -1,14 +1,18 @@
 import { describe, it, expect, vi } from "vitest"
 import fs from "fs"
+import { findWindowsAvastPath } from ".."
+import dotenv from "dotenv"
+
+dotenv.config()
 
 vi.mock("fs")
 vi.mock("child_process")
 
 // Helper function to find Avast path
-function findWindowsAvastPath(): string | null {
-  const avastPath = "C:\\Program Files\\Avast Software\\Avast\\ashCmd.exe"
-  return fs.existsSync(avastPath) ? avastPath : null
-}
+// function findWindowsAvastPath(): string | null {
+//   const avastPath = "C:\\Program Files\\Avast Software\\Avast\\ashCmd.exe"
+//   return fs.existsSync(avastPath) ? avastPath : null
+// }
 
 describe("avast", () => {
   it("should return the correct path if Avast is installed", () => {
